@@ -10,7 +10,7 @@ find_package(kodi REQUIRED)
 find_package(kodiplatform REQUIRED)
 
 include_directories(${KODI_INCLUDE_DIR}
-                    ${kodiplatform_INCLUDE_DIR}
+                    ${kodiplatform_INCLUDE_DIRS}
                     ${PROJECT_SOURCE_DIR}/lib/liborganya)
 
 add_subdirectory(lib/liborganya)
