@@ -14,7 +14,7 @@
 #include "decoder.h"
 #include "swap.h"
 
-#include "kodi/libXBMC_addon.h"
+#include "libXBMC_addon.h"
 
 extern ADDON::CHelper_libXBMC_addon *XBMC;
 
