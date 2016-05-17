@@ -11,10 +11,10 @@
     point="kodi.audiodecoder"
     name="org"
     extension=".org"
-    library_linux="audiodecoder.organya.so"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Organya Audio Decoder</summary>
     <description lang="en">Organya Audio Decoder</description>
-    <platform>all</platform>
+    <platform>@PLATFORM@</platform>
   </extension>
 </addon>
