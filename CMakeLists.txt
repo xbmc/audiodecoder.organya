@@ -18,6 +18,8 @@ add_subdirectory(lib/liborganya)
 set(ORG_SOURCES src/OrganyaCodec.cpp
                 src/RingBuffer.cpp)
 
+set(ORG_HEADERS src/RingBuffer.h)
+
 set(DEPLIBS ${p8-platform_LIBRARIES} organya)
 
 build_addon(audiodecoder.organya ORG DEPLIBS)
