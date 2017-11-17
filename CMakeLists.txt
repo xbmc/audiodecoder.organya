@@ -9,7 +9,7 @@ enable_language(CXX)
 find_package(Kodi REQUIRED)
 find_package(p8-platform REQUIRED)
 
-include_directories(${KODI_INCLUDE_DIR}
+include_directories(${KODI_INCLUDE_DIR}/.. # Hack way with "/..", need bigger Kodi cmake rework to match right include ways (becomes done in future)
                     ${p8-platform_INCLUDE_DIRS}
                     ${PROJECT_SOURCE_DIR}/lib/liborganya)
 

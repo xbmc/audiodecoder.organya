@@ -14,9 +14,10 @@
 #include "decoder.h"
 #include "swap.h"
 
-#include "libXBMC_addon.h"
+#include <string>
 
-extern ADDON::CHelper_libXBMC_addon *XBMC;
+#include <kodi/Filesystem.h>
+
 
 // Advance the decoder by one beat
 void _org_advance_beat(org_decoder_t *decoder) {
@@ -243,15 +244,16 @@ uint8_t _org_decoder_load_samples(org_decoder_t *decoder, const char *resource_p
 		
 		int16_t *wave = NULL;
 		size_t size = 0;
-		void* fin = XBMC->OpenFile(dat_path.c_str(), 0);
+		kodi::vfs::CFile fin;
+		fin.OpenFile(dat_path);
 		
 		// Get the number of samples
-		size = XBMC->GetFileLength(fin);
+		size = fin.GetLength();
 		
 		// Allocate space for the PCM data and read it in.
 		wave = (int16_t *) malloc(size);
 		if ( !wave ) throw std::bad_alloc();
-                XBMC->ReadFile(fin, wave, size);
+                fin.Read(wave, size);
 		
 		// PCM data is big endian. We want host.
 		for (int j = 0; j < size/2; j++) {
@@ -261,7 +263,7 @@ uint8_t _org_decoder_load_samples(org_decoder_t *decoder, const char *resource_p
 		// Store it in the decoder
 		decoder->samples[i].wave = wave;
 		decoder->samples[i].length = size/2;
-                XBMC->CloseFile(fin);
+                fin.Close();
 	}
 	
 	return 16;
