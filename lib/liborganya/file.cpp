@@ -11,27 +11,26 @@
 #include "file.h"
 #include "swap.h"
 
-#include "libXBMC_addon.h"
 
-extern ADDON::CHelper_libXBMC_addon *XBMC;
+#include <kodi/Filesystem.h>
 
 // File reading helpers 
 uint8_t _org_read_8(void* fin) {
 	uint8_t i = 0;
 	
-        XBMC->ReadFile(fin, &i, 1);
+	static_cast<kodi::vfs::CFile*>(fin)->Read(&i, 1);
 	return i;
 }
 
 uint16_t _org_read_16(void* fin) {
 	uint16_t i = 0;
-        XBMC->ReadFile(fin, &i, 2);
+	static_cast<kodi::vfs::CFile*>(fin)->Read(&i, 2);
 	return org_ltoh_16(i);
 }
 
 uint32_t _org_read_32(void* fin) {
 	uint32_t i = 0;
-        XBMC->ReadFile(fin, &i, 4);
+	static_cast<kodi::vfs::CFile*>(fin)->Read(&i, 4);
 	return org_ltoh_32(i);
 }
 
@@ -40,7 +39,7 @@ void _org_read_header(org_header_t *header, void* fin)
 {
 	// Read the magic. All orgyana files start with Org-02.
 	int8_t buf[6];
-        XBMC->ReadFile(fin, buf, 6);
+	static_cast<kodi::vfs::CFile*>(fin)->Read(buf, 6);
 	if(0 != memcmp(buf, "Org-02", 6)) {
 		throw NULL;
 	}

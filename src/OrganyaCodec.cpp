@@ -17,7 +17,6 @@
  *
  */
 
-#include "libXBMC_addon.h"
 #include "RingBuffer.h"
 
 #include "decoder.h"
@@ -25,141 +24,105 @@
 
 #include <iostream>
 
-extern "C" {
-#include <stdio.h>
-#include <stdint.h>
+#include <kodi/addon-instance/AudioDecoder.h>
+#include <kodi/Filesystem.h>
 
-#include "kodi_audiodec_dll.h"
 
-ADDON::CHelper_libXBMC_addon *XBMC           = NULL;
-
-ADDON_STATUS ADDON_Create(void* hdl, void* props)
+class COrganyaCodec : public kodi::addon::CInstanceAudioDecoder
+  , public kodi::addon::CAddonBase
 {
-  if (!XBMC)
-    XBMC = new ADDON::CHelper_libXBMC_addon;
+public:
+  COrganyaCodec(KODI_HANDLE instance) : CInstanceAudioDecoder(instance) {};
+  ~COrganyaCodec() override;
+  bool Init(const std::string& filename, unsigned int filecache, int& channels, int& samplerate,
+            int& bitspersample, int64_t& totaltime,
+            int& bitrate, AEDataFormat& format,
+            std::vector<AEChannel>& channellist) override;
+  int ReadPCM(uint8_t* buffer, int size, int& actualsize) override;
+  int64_t Seek(int64_t time) override;
+  bool ReadTag(const std::string& file, std::string& title, std::string& artist, int& length) override { return true; }
 
-  if (!XBMC->RegisterMe(hdl))
-  {
-    delete XBMC, XBMC=NULL;
-    return ADDON_STATUS_PERMANENT_FAILURE;
-  }
-
-  return ADDON_STATUS_OK;
-}
-
-//-- Destroy ------------------------------------------------------------------
-// Do everything before unload of this add-on
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
-void ADDON_Destroy()
-{
-  XBMC=NULL;
-}
-
-//-- GetStatus ---------------------------------------------------------------
-// Returns the current Status of this visualisation
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
-ADDON_STATUS ADDON_GetStatus()
-{
-  return ADDON_STATUS_OK;
-}
-
-//-- SetSetting ---------------------------------------------------------------
-// Set a specific Setting value (called from XBMC)
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
-ADDON_STATUS ADDON_SetSetting(const char *strSetting, const void* value)
-{
-  return ADDON_STATUS_OK;
-}
-
-struct OrgContext
-{
+private:
   org_decoder_t* tune;
   int64_t length;
   int64_t pos;
   CRingBuffer sample_buffer;
 };
 
-void* Init(const char* strFile, unsigned int filecache, int* channels,
-           int* samplerate, int* bitspersample, int64_t* totaltime,
-           int* bitrate, AEDataFormat* format, const AEChannel** channelinfo)
+
+bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int& channels,
+                         int& samplerate, int& bitspersample, int64_t& totaltime,
+                         int& bitrate, AEDataFormat& format, std::vector<AEChannel>& channelinfo)
 {
-  OrgContext* result = new OrgContext;
-  result->sample_buffer.Create(4096);
-  void* file = XBMC->OpenFile(strFile, 0);
-  char temp[1024];
-  XBMC->GetSetting("__addonpath__",temp);
-  strcat(temp,"/resources/samples");
-  result->tune = org_decoder_create(file, temp, 1);
-  result->tune->state.sample_rate = 48000;
-  *totaltime = org_decoder_get_total_samples(result->tune)*1000/48000;
-  result->length = *totaltime/1000*48000*4;
-  static enum AEChannel map[3] = {
-    AE_CH_FL, AE_CH_FR, AE_CH_NULL
-  };
-  *format = AE_FMT_S16NE;
-  *channelinfo = map;
-  *channels = 2;
-  *bitspersample = 16;
-  *bitrate = 0.0;
-  *samplerate = 48000;
+  sample_buffer.Create(4096);
+  kodi::vfs::CFile file;
+  file.OpenFile(strFile);
+  if (!file.OpenFile(strFile, 0))
+    return false;
+  std::string temp = kodi::GetSettingString("__addonpath__") + "/resources/samples";
+  tune = org_decoder_create(&file, temp.c_str(), 1);
+  tune->state.sample_rate = 48000;
+  totaltime = org_decoder_get_total_samples(tune)*1000/48000;
+  length = totaltime/1000*48000*4;
+  format = AE_FMT_S16NE;
+  channelinfo = { AE_CH_FL, AE_CH_FR, AE_CH_NULL };
+  channels = 2;
+  bitspersample = 16;
+  bitrate = 0.0;
+  samplerate = 48000;
 
-  XBMC->CloseFile(file);
-  Seek(result, 0);
+  file.Close();
+  Seek(0);
 
-  return result;
+  return true;
 }
 
-int ReadPCM(void* context, uint8_t* pBuffer, int size, int *actualsize)
+int COrganyaCodec::ReadPCM(uint8_t* pBuffer, int size, int &actualsize)
 {
-  OrgContext* org = (OrgContext*)context;
-  if (org->pos >= org->length*48000*4/1000)
+  if (pos >= length*48000*4/1000)
     return 1;
 
-  if (org->sample_buffer.getMaxReadSize() == 0) {
+  if (sample_buffer.getMaxReadSize() == 0) {
     int16_t temp[1024*2]; 
     int64_t written=1024;
-    written = org_decode_samples(org->tune, temp, written);
+    written = org_decode_samples(tune, temp, written);
     if (written == 0)
       return 1;
-    org->sample_buffer.WriteData((const char*)temp, written*4);
+    sample_buffer.WriteData((const char*)temp, written*4);
   }
 
-  int tocopy = std::min(size, (int)org->sample_buffer.getMaxReadSize());
-  org->sample_buffer.ReadData((char*)pBuffer, tocopy);
-  org->pos += tocopy;
-  *actualsize = tocopy;
+  int tocopy = std::min(size, (int)sample_buffer.getMaxReadSize());
+  sample_buffer.ReadData((char*)pBuffer, tocopy);
+  pos += tocopy;
+  actualsize = tocopy;
   return 0;
 }
 
-int64_t Seek(void* context, int64_t time)
+int64_t COrganyaCodec::Seek(int64_t time)
 {
-  OrgContext* org = (OrgContext*)context;
+  pos = time*48000*4/1000;
 
-  org->pos = time*48000*4/1000;
-
-  org_decoder_seek_sample(org->tune, org->pos/4);
+  org_decoder_seek_sample(tune, pos/4);
   
   return time;
 }
 
-bool DeInit(void* context)
+COrganyaCodec::~COrganyaCodec()
 {
-  OrgContext* org = (OrgContext*)context;
-  org_decoder_destroy(org->tune);
-  delete org;
-  return true;
+  org_decoder_destroy(tune);
 }
 
-bool ReadTag(const char* strFile, char* title, char* artist, int* length)
+class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
-  return true;
-}
+public:
+  CMyAddon() { }
+  virtual ADDON_STATUS CreateInstance(int instanceType, std::string instanceID, KODI_HANDLE instance, KODI_HANDLE& addonInstance) override
+  {
+    addonInstance = new COrganyaCodec(instance);
+    return ADDON_STATUS_OK;
+  }
 
-int TrackCount(const char* strFile)
-{
-  return 1;
-}
-}
+  virtual ~CMyAddon() {}
+};
+
+ADDONCREATOR(CMyAddon); // Don't touch this!
