@@ -22,6 +22,7 @@
 #include "decoder.h"
 #include "organya.h"
 
+#include <algorithm>
 #include <iostream>
 
 #include <kodi/addon-instance/AudioDecoder.h>
