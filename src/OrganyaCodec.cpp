@@ -29,8 +29,7 @@
 #include <kodi/Filesystem.h>
 
 
-class COrganyaCodec : public kodi::addon::CInstanceAudioDecoder
-  , public kodi::addon::CAddonBase
+class ATTRIBUTE_HIDDEN COrganyaCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
   COrganyaCodec(KODI_HANDLE instance) : CInstanceAudioDecoder(instance) {};
