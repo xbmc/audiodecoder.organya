@@ -1,9 +1,5 @@
+cmake_minimum_required(VERSION 3.5)
 project(orgyana)
-
-enable_language(C)
-enable_language(CXX)
-
-cmake_minimum_required(VERSION 2.6)
 
 set(SOURCES blip_buf.c
             decoder.cpp
