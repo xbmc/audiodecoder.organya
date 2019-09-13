@@ -42,7 +42,7 @@ public:
             std::vector<AEChannel>& channellist) override;
   int ReadPCM(uint8_t* buffer, int size, int& actualsize) override;
   int64_t Seek(int64_t time) override;
-  bool ReadTag(const std::string& file, std::string& title, std::string& artist, int& length) override { return true; }
+  bool ReadTag(const std::string& file, std::string& title, std::string& artist, int& length) override;
 
 private:
   inline int mul_div(int number, int numerator, int denominator)
