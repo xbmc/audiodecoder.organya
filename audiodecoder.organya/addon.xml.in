@@ -9,6 +9,7 @@
     point="kodi.audiodecoder"
     name="org"
     extension=".org"
+    tags="true"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Organya Audio Decoder</summary>

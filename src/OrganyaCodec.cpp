@@ -22,7 +22,8 @@
 
 COrganyaCodec::~COrganyaCodec()
 {
-  org_decoder_destroy(m_tune);
+  if (m_tune)
+    org_decoder_destroy(m_tune);
 }
 
 bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int& channels,
@@ -108,6 +109,23 @@ int64_t COrganyaCodec::Seek(int64_t time)
   
   return time;
 }
+
+bool COrganyaCodec::ReadTag(const std::string& file, std::string& title,
+                            std::string& artist, int& length)
+{
+  if (!m_file.OpenFile(file, 0))
+    return false;
+
+  std::string temp = kodi::GetAddonPath("resources/samples");
+  m_tune = org_decoder_create(&m_file, temp.c_str(), m_cfgLoopCnt > 1 ? m_cfgLoopCnt : 1);
+  if (!m_tune)
+    return false;
+
+  m_tune->state.sample_rate = m_cfgSampleRate;
+  length = org_decoder_get_total_samples(m_tune) / m_cfgSampleRate;
+  return true;
+}
+
 
 class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
