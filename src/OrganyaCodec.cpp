@@ -36,6 +36,10 @@ bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int
     return false;
   }
 
+  kodi::CheckSettingBoolean("loopindefinitely", m_cfgLoopIndefinitely);
+  kodi::CheckSettingInt("loopcount", m_cfgLoopCnt);
+  kodi::CheckSettingInt("fadetime", m_cfgFadeTime);
+
   std::string temp = kodi::GetAddonPath("resources/samples");
   m_tune = org_decoder_create(&m_file, temp.c_str(), !m_cfgLoopIndefinitely ? 1 : m_cfgLoopCnt);
   if (!m_tune)
