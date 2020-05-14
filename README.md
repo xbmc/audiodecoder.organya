@@ -2,6 +2,7 @@
 
 This is a [Kodi](https://kodi.tv) audio decoder addon for ORG music files.
 
+[![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL%20v2+-blue.svg)](LICENSE.md)
 [![Build Status](https://travis-ci.org/xbmc/audiodecoder.organya.svg?branch=Matrix)](https://travis-ci.org/xbmc/audiodecoder.organya/branches)
 [![Build Status](https://dev.azure.com/teamkodi/binary-addons/_apis/build/status/xbmc.audiodecoder.openmpt?branchName=Matrix)](https://dev.azure.com/teamkodi/binary-addons/_build/latest?definitionId=10&branchName=Matrix)
 <!--- [![Build Status](https://ci.appveyor.com/api/projects/status/github/xbmc/audiodecoder.organya?branch=Matrix&svg=true)](https://ci.appveyor.com/project/xbmc/audiodecoder-organya?branch=Matrix) -->
