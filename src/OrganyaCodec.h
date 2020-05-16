@@ -22,7 +22,7 @@
 class ATTRIBUTE_HIDDEN COrganyaCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
-  COrganyaCodec(KODI_HANDLE instance) : CInstanceAudioDecoder(instance) {};
+  COrganyaCodec(KODI_HANDLE instance, const std::string& version) : CInstanceAudioDecoder(instance, version) {};
   ~COrganyaCodec() override;
   bool Init(const std::string& filename, unsigned int filecache, int& channels, int& samplerate,
             int& bitspersample, int64_t& totaltime,
