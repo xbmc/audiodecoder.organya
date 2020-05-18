@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="audiodecoder.organya"
-  version="2.1.1"
+  version="2.1.2"
   name="Org Audio Decoder"
   provider-name="spiff">
   <requires>@ADDON_DEPENDS@</requires>
@@ -12,12 +12,12 @@
     tags="true"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Organya Audio Decoder</summary>
-    <description lang="en">Organya is a music format used in "Cave Story", created by the Japanese programmer "Pixel". As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.
+    <summary lang="en_GB">Organya Audio Decoder</summary>
+    <description lang="en_GB">Organya is a music format used in "Cave Story", created by the Japanese programmer "Pixel". As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.
 
 This addon allows playing of .ORG files for this format.</description>
     <platform>@PLATFORM@</platform>
-    <license>GPL-2.0</license>
+    <license>GPL-2.0-or-later</license>
     <source>https://github.com/xbmc/audiodecoder.organya</source>
     <assets>
       <icon>icon.png</icon>
