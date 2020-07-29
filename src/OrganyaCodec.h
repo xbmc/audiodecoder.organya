@@ -8,25 +8,30 @@
 
 #pragma once
 
-#include <algorithm>
-#include <iostream>
-#include <vector>
-
-#include <kodi/addon-instance/AudioDecoder.h>
-#include <kodi/Filesystem.h>
-#include <kodi/General.h>
-
 #include "decoder.h"
 #include "organya.h"
+
+#include <algorithm>
+#include <iostream>
+#include <kodi/Filesystem.h>
+#include <kodi/General.h>
+#include <kodi/addon-instance/AudioDecoder.h>
+#include <vector>
 
 class ATTRIBUTE_HIDDEN COrganyaCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
-  COrganyaCodec(KODI_HANDLE instance, const std::string& version) : CInstanceAudioDecoder(instance, version) {};
+  COrganyaCodec(KODI_HANDLE instance, const std::string& version)
+    : CInstanceAudioDecoder(instance, version){};
   ~COrganyaCodec() override;
-  bool Init(const std::string& filename, unsigned int filecache, int& channels, int& samplerate,
-            int& bitspersample, int64_t& totaltime,
-            int& bitrate, AudioEngineDataFormat& format,
+  bool Init(const std::string& filename,
+            unsigned int filecache,
+            int& channels,
+            int& samplerate,
+            int& bitspersample,
+            int64_t& totaltime,
+            int& bitrate,
+            AudioEngineDataFormat& format,
             std::vector<AudioEngineChannel>& channellist) override;
   int ReadPCM(uint8_t* buffer, int size, int& actualsize) override;
   int64_t Seek(int64_t time) override;
@@ -38,7 +43,7 @@ private:
     long long ret = number;
     ret *= numerator;
     ret /= denominator;
-    return (int) ret;
+    return (int)ret;
   }
 
   int m_cfgFadeTime = 1000;

@@ -14,9 +14,15 @@ COrganyaCodec::~COrganyaCodec()
     org_decoder_destroy(m_tune);
 }
 
-bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int& channels,
-                         int& samplerate, int& bitspersample, int64_t& totaltime,
-                         int& bitrate, AudioEngineDataFormat& format, std::vector<AudioEngineChannel>& channelinfo)
+bool COrganyaCodec::Init(const std::string& strFile,
+                         unsigned int filecache,
+                         int& channels,
+                         int& samplerate,
+                         int& bitspersample,
+                         int64_t& totaltime,
+                         int& bitrate,
+                         AudioEngineDataFormat& format,
+                         std::vector<AudioEngineChannel>& channelinfo)
 {
   if (!m_file.OpenFile(strFile, 0))
   {
@@ -43,7 +49,7 @@ bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int
 
   totaltime = m_length * 1000 / m_cfgSampleRate;
   format = AUDIOENGINE_FMT_S16NE;
-  channelinfo = { AUDIOENGINE_CH_FL, AUDIOENGINE_CH_FR };
+  channelinfo = {AUDIOENGINE_CH_FL, AUDIOENGINE_CH_FR};
   channels = 2;
   bitspersample = 16;
   bitrate = 0.0;
@@ -54,7 +60,7 @@ bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int
   return true;
 }
 
-int COrganyaCodec::ReadPCM(uint8_t* pBuffer, int size, int &actualsize)
+int COrganyaCodec::ReadPCM(uint8_t* pBuffer, int size, int& actualsize)
 {
   if (!m_cfgLoopIndefinitely && m_samplesDecoded > m_length)
     return -1;
@@ -118,17 +124,22 @@ bool COrganyaCodec::ReadTag(const std::string& filename, kodi::addon::AudioDecod
   return true;
 }
 
+//------------------------------------------------------------------------------
 
 class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
   ~CMyAddon() override = default;
-  ADDON_STATUS CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance) override
+  ADDON_STATUS CreateInstance(int instanceType,
+                              const std::string& instanceID,
+                              KODI_HANDLE instance,
+                              const std::string& version,
+                              KODI_HANDLE& addonInstance) override
   {
     addonInstance = new COrganyaCodec(instance, version);
     return ADDON_STATUS_OK;
   }
 };
 
-ADDONCREATOR(CMyAddon); // Don't touch this!
+ADDONCREATOR(CMyAddon) // Don't touch this!
