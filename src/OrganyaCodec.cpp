@@ -14,9 +14,15 @@ COrganyaCodec::~COrganyaCodec()
     org_decoder_destroy(m_tune);
 }
 
-bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int& channels,
-                         int& samplerate, int& bitspersample, int64_t& totaltime,
-                         int& bitrate, AEDataFormat& format, std::vector<AEChannel>& channelinfo)
+bool COrganyaCodec::Init(const std::string& strFile,
+                         unsigned int filecache,
+                         int& channels,
+                         int& samplerate,
+                         int& bitspersample,
+                         int64_t& totaltime,
+                         int& bitrate,
+                         AudioEngineDataFormat& format,
+                         std::vector<AudioEngineChannel>& channelinfo)
 {
   if (!m_file.OpenFile(strFile, 0))
   {
@@ -42,8 +48,8 @@ bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int
   m_samplesDecoded = 0;
 
   totaltime = m_length * 1000 / m_cfgSampleRate;
-  format = AE_FMT_S16NE;
-  channelinfo = { AE_CH_FL, AE_CH_FR, AE_CH_NULL };
+  format = AUDIOENGINE_FMT_S16NE;
+  channelinfo = {AUDIOENGINE_CH_FL, AUDIOENGINE_CH_FR};
   channels = 2;
   bitspersample = 16;
   bitrate = 0.0;
@@ -54,7 +60,7 @@ bool COrganyaCodec::Init(const std::string& strFile, unsigned int filecache, int
   return true;
 }
 
-int COrganyaCodec::ReadPCM(uint8_t* pBuffer, int size, int &actualsize)
+int COrganyaCodec::ReadPCM(uint8_t* pBuffer, int size, int& actualsize)
 {
   if (!m_cfgLoopIndefinitely && m_samplesDecoded > m_length)
     return -1;
@@ -98,14 +104,13 @@ int64_t COrganyaCodec::Seek(int64_t time)
   int64_t pos = time * m_cfgSampleRate / 1000;
   org_decoder_seek_sample(m_tune, pos);
   m_samplesDecoded = pos;
-  
+
   return time;
 }
 
-bool COrganyaCodec::ReadTag(const std::string& file, std::string& title,
-                            std::string& artist, int& length)
+bool COrganyaCodec::ReadTag(const std::string& filename, kodi::addon::AudioDecoderInfoTag& tag)
 {
-  if (!m_file.OpenFile(file, 0))
+  if (!m_file.OpenFile(filename, 0))
     return false;
 
   std::string temp = kodi::GetAddonPath("resources/samples");
@@ -114,21 +119,27 @@ bool COrganyaCodec::ReadTag(const std::string& file, std::string& title,
     return false;
 
   m_tune->state.sample_rate = m_cfgSampleRate;
-  length = org_decoder_get_total_samples(m_tune) / m_cfgSampleRate;
+  tag.SetSamplerate(m_cfgSampleRate);
+  tag.SetDuration(org_decoder_get_total_samples(m_tune) / m_cfgSampleRate);
   return true;
 }
 
+//------------------------------------------------------------------------------
 
 class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
   ~CMyAddon() override = default;
-  ADDON_STATUS CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance) override
+  ADDON_STATUS CreateInstance(int instanceType,
+                              const std::string& instanceID,
+                              KODI_HANDLE instance,
+                              const std::string& version,
+                              KODI_HANDLE& addonInstance) override
   {
     addonInstance = new COrganyaCodec(instance, version);
     return ADDON_STATUS_OK;
   }
 };
 
-ADDONCREATOR(CMyAddon); // Don't touch this!
+ADDONCREATOR(CMyAddon) // Don't touch this!
