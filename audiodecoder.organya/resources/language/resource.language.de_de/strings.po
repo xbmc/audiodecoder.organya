@@ -16,6 +16,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgctxt "Addon Summary"
+msgid "Organya Audio Decoder"
+msgstr "Organya Audio Decoder"
+
+msgctxt "Addon Description"
+msgid "Organya is a music format used in "Cave Story", created by the Japanese programmer "Pixel". As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.
+
+This addon allows playing of .ORG files for this format."
+msgstr "Organya ist ein Musikformat, das in "Cave Story" verwendet wird und vom japanischen Programmierer "Pixel" erstellt wurde. Neben der Verwendung im Originalspiel gibt es eine große und aktive Cave Story-Fan-Community, die Musik in diesem Format erstellt, sowohl für das eigenständige Spielen als auch für die Verwendung in Modifikationen für das Spiel.
+
+Dieses Addon ermöglicht das Abspielen von .ORG-Dateien für dieses Format."
+
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
 # For example, prefer wording as "This new string" instead of "This New String".
