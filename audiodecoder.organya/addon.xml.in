@@ -18,9 +18,13 @@
     <assets>
       <icon>icon.png</icon>
     </assets>
+    <summary lang="da_DK">Organya lydafkoder</summary>
     <summary lang="de_DE">Organya Audio Decoder</summary>
     <summary lang="en_GB">Organya Audio Decoder</summary>
+    <summary lang="ru_RU">Аудиодекодер Organya</summary>
+    <description lang="da_DK">Organya er et musikformat, der bruges i &quot;Cave Story&quot;, skabt af den japanske programmør &quot;Pixel&quot;. Udover at blive brugt i det originale spil, er der et stort og aktivt Cave Story-fanfællesskab, der skaber musik i dette format, både til selvstændig afspilning og til brug i mods til spillet.[CR][CR]Dette add-on tillader afspilning af .ORG-filer til dette format.</description>
     <description lang="de_DE">Organya ist ein Musikformat, das in &quot;Cave Story&quot; verwendet wird und vom japanischen Programmierer &quot;Pixel&quot; erstellt wurde. Neben der Verwendung im Originalspiel gibt es eine große und aktive Cave Story-Fan-Community, die Musik in diesem Format erstellt, sowohl für das eigenständige Spielen als auch für die Verwendung in Modifikationen für das Spiel.[CR][CR]Dieses Addon ermöglicht das Abspielen von .ORG-Dateien für dieses Format.</description>
     <description lang="en_GB">Organya is a music format used in &quot;Cave Story&quot;, created by the Japanese programmer &quot;Pixel&quot;. As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.[CR][CR]This addon allows playing of .ORG files for this format.</description>
+    <description lang="ru_RU">Organya - это музыкальный формат, используемый в игре &quot;Cave Story&quot;, созданный японским программистом &quot;Pixel&quot;. Помимо того, что он используется в оригинальной игре, существует большое и активное сообщество фанатов &quot;Cave Story&quot;, которые создают музыку в этом формате, как для самостоятельного воспроизведения, так и для использования в модах к игре.[CR][CR]Это дополнение позволяет воспроизводить файлы .ORG для этого формата.</description>
   </extension>
 </addon>
