@@ -59,3 +59,9 @@ msgstr ""
 msgctxt "#30006"
 msgid "Time at the end to reduce the volume."
 msgstr ""
+
+#. Supported file extension description about ".org"
+#: audiodecoder.org/addon.xml.in
+msgctxt "#30100"
+msgid "Organya is a music format used in \"Cave Story\", created by the Japanese programmer \"Pixel\"."
+msgstr ""
