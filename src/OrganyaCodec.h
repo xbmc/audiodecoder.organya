@@ -21,8 +21,7 @@
 class ATTR_DLL_LOCAL COrganyaCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
-  COrganyaCodec(KODI_HANDLE instance, const std::string& version)
-    : CInstanceAudioDecoder(instance, version){};
+  COrganyaCodec(const kodi::addon::IInstanceInfo& instance) : CInstanceAudioDecoder(instance) {}
   ~COrganyaCodec() override;
   bool Init(const std::string& filename,
             unsigned int filecache,

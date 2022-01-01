@@ -30,13 +30,13 @@ bool COrganyaCodec::Init(const std::string& strFile,
     return false;
   }
 
-  kodi::CheckSettingBoolean("loopindefinitely", m_cfgLoopIndefinitely);
-  kodi::CheckSettingInt("loopcount", m_cfgLoopCnt);
-  kodi::CheckSettingInt("fadetime", m_cfgFadeTime);
+  kodi::addon::CheckSettingBoolean("loopindefinitely", m_cfgLoopIndefinitely);
+  kodi::addon::CheckSettingInt("loopcount", m_cfgLoopCnt);
+  kodi::addon::CheckSettingInt("fadetime", m_cfgFadeTime);
 
   try
   {
-    std::string temp = kodi::GetAddonPath("resources/samples");
+    std::string temp = kodi::addon::GetAddonPath("resources/samples");
     m_tune = org_decoder_create(&m_file, temp.c_str(), !m_cfgLoopIndefinitely ? 1 : m_cfgLoopCnt);
     if (!m_tune)
     {
@@ -138,7 +138,7 @@ bool COrganyaCodec::ReadTag(const std::string& filename, kodi::addon::AudioDecod
 
   try
   {
-    std::string temp = kodi::GetAddonPath("resources/samples");
+    std::string temp = kodi::addon::GetAddonPath("resources/samples");
     m_tune = org_decoder_create(&m_file, temp.c_str(), m_cfgLoopCnt > 1 ? m_cfgLoopCnt : 1);
     if (!m_tune)
       return false;
@@ -161,13 +161,10 @@ class ATTR_DLL_LOCAL CMyAddon : public kodi::addon::CAddonBase
 public:
   CMyAddon() = default;
   ~CMyAddon() override = default;
-  ADDON_STATUS CreateInstance(int instanceType,
-                              const std::string& instanceID,
-                              KODI_HANDLE instance,
-                              const std::string& version,
-                              KODI_HANDLE& addonInstance) override
+  ADDON_STATUS CreateInstance(const kodi::addon::IInstanceInfo& instance,
+                              KODI_ADDON_INSTANCE_HDL& hdl) override
   {
-    addonInstance = new COrganyaCodec(instance, version);
+    hdl = new COrganyaCodec(instance);
     return ADDON_STATUS_OK;
   }
 };
