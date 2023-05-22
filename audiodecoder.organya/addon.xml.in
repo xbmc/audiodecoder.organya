@@ -24,6 +24,7 @@
     <assets>
       <icon>icon.png</icon>
     </assets>
+    <summary lang="ar_SA">مفكك شفرة الصوت لأورغانيا</summary>
     <summary lang="ca_ES">Descodificador d&apos;àudio Organya</summary>
     <summary lang="da_DK">Organya lydafkoder</summary>
     <summary lang="de_DE">Organya Audio Decoder</summary>
