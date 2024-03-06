@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: KODI Addons\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-02-12 08:15+0000\n"
-"Last-Translator: Alfonso Cachero <alfonso.cachero@gmail.com>\n"
+"PO-Revision-Date: 2023-11-18 06:11+0000\n"
+"Last-Translator: roliverosc <roliverosc@hotmail.com>\n"
 "Language-Team: Spanish (Spain) <https://kodi.weblate.cloud/projects/kodi-add-ons-audio-decodersencoders/audiodecoder-organya/es_es/>\n"
 "Language: es_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.2\n"
+"X-Generator: Weblate 5.1\n"
 
 msgctxt "Addon Summary"
 msgid "Organya Audio Decoder"
@@ -23,7 +23,7 @@ msgstr "Decodificador de Audio Organya"
 
 msgctxt "Addon Description"
 msgid "Organya is a music format used in \"Cave Story\", created by the Japanese programmer \"Pixel\". As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.[CR][CR]This addon allows playing of .ORG files for this format."
-msgstr "Organya es un formato musical usado en \"Cave Story\", creado por el programador japonés \"Pixel\". Al haber sido usado en el juego origina, hay una gran comunidad fan muy activa de Cave Story que crea música en este formato, tanto para reproducirla simplemente como para usarla como modificación del juego.[CR][CR]Este add-on permite reproducir archivos .ORG de este formato."
+msgstr "Organya es un formato musical usado en \"Cave Story\", creado por el programador japonés \"Pixel\". Al haber sido usado en el juego origina, hay una gran comunidad fan muy activa de Cave Story que crea música en este formato, tanto para reproducirla simplemente como para usarla como modificación del juego.[CR][CR]Este complemento permite reproducir archivos .ORG de este formato."
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -38,7 +38,7 @@ msgstr "En bucle indefinidamente"
 
 msgctxt "#30001"
 msgid "When enabled, plays either infinite or repeats with the following setting."
-msgstr "Si se activa, reproduce indefinidamente o repite con el siguiente ajuste."
+msgstr "Cuando está habilitado, reproduce infinitamente o se repite con la siguiente configuración."
 
 msgctxt "#30002"
 msgid "Loop count"
