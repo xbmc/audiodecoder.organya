@@ -5,24 +5,25 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Addons\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/audiodecoder.organya/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-04-05 11:43+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-audio-decodersencoders/audiodecoder-organya/sv_se/>\n"
 "Language: sv_se\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 msgctxt "Addon Summary"
 msgid "Organya Audio Decoder"
-msgstr ""
+msgstr "Organya-ljudavkodare"
 
 msgctxt "Addon Description"
 msgid "Organya is a music format used in \"Cave Story\", created by the Japanese programmer \"Pixel\". As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.[CR][CR]This addon allows playing of .ORG files for this format."
-msgstr ""
+msgstr "Organya är ett musikformat som används i ”Cave Story” och som skapades av den japanska programmeraren ”Pixel”. Förutom att det används i originalspelet finns det ett stort och aktivt Cave Story-fangemenskap som skapar musik i det här formatet, både för att spela fristående och för att använda i mods för spelet.[CR][CR]Det här tillägget gör det möjligt att spela .ORG-filer i det här formatet."
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -33,28 +34,28 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "Loop indefinitely"
-msgstr ""
+msgstr "Spela upp i oändlig slinga"
 
 msgctxt "#30001"
 msgid "When enabled, plays either infinite or repeats with the following setting."
-msgstr ""
+msgstr "När den är aktiverad spelas antingen oavbrutet eller upprepat med följande inställning."
 
 msgctxt "#30002"
 msgid "Loop count"
-msgstr ""
+msgstr "Antal slingor"
 
 msgctxt "#30003"
 msgid "The number of repetitions or as infinite."
-msgstr ""
+msgstr "Antalet upprepningar eller som oändligt."
 
 msgctxt "#30004"
 msgid "Infinity"
-msgstr ""
+msgstr "Oändligt"
 
 msgctxt "#30005"
 msgid "Fade time (ms)"
-msgstr ""
+msgstr "Uttoningstid (ms)"
 
 msgctxt "#30006"
 msgid "Time at the end to reduce the volume."
-msgstr ""
+msgstr "Tid i slutet för att minska volymen."
