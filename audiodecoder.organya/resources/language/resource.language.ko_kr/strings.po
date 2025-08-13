@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Addons\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-24 13:29+0000\n"
+"PO-Revision-Date: 2025-08-08 01:29+0000\n"
 "Last-Translator: Minho Park <parkmino@gmail.com>\n"
 "Language-Team: Korean <https://kodi.weblate.cloud/projects/kodi-add-ons-audio-decodersencoders/audiodecoder-organya/ko_kr/>\n"
 "Language: ko_kr\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 5.12.2\n"
 
 msgctxt "Addon Summary"
 msgid "Organya Audio Decoder"
-msgstr ""
+msgstr "Organya 오디오 디코더"
 
 msgctxt "Addon Description"
 msgid "Organya is a music format used in \"Cave Story\", created by the Japanese programmer \"Pixel\". As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.[CR][CR]This addon allows playing of .ORG files for this format."
-msgstr ""
+msgstr "Organya는 일본 프로그래머 \"Pixel\"이 개발한 \"Cave Story\"에서 사용되는 음악 형식입니다. 오리지널 게임뿐만 아니라, 이 형식으로 음악을 제작하는 크고 활발한 Cave Story 팬 커뮤니티가 있으며, 단독 재생 및 게임 모드에 사용할 수 있습니다.[CR][CR]이 애드온은 .ORG 파일을 이 형식으로 재생할 수 있도록 지원합니다."
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
