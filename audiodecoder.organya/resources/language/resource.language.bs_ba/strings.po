@@ -5,24 +5,25 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Addons\n"
-"Report-Msgid-Bugs-To: https://github.com/xbmc/audiodecoder.organya/issues/\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-09-01 06:29+0000\n"
+"Last-Translator: SecularSteve <fairfull.playing@gmail.com>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) <https://kodi.weblate.cloud/projects/kodi-add-ons-audio-decodersencoders/audiodecoder-organya/bs_ba/>\n"
 "Language: bs_ba\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.13\n"
 
 msgctxt "Addon Summary"
 msgid "Organya Audio Decoder"
-msgstr ""
+msgstr "Organya audio dekoder"
 
 msgctxt "Addon Description"
 msgid "Organya is a music format used in \"Cave Story\", created by the Japanese programmer \"Pixel\". As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.[CR][CR]This addon allows playing of .ORG files for this format."
-msgstr ""
+msgstr "Organya je muzički format koji se koristi u igri \"Cave Story\", koju je kreirao japanski programer \"Pixel\". Osim što se koristi u originalnoj igri, postoji velika i aktivna zajednica obožavatelja Cave Storyja koja kreira muziku u ovom formatu, kako za samostalno reproduciranje, tako i za upotrebu u modovima za igru.[CR][CR]Ovaj dodatak omogućava reprodukciju .ORG datoteka za ovaj format."
 
 # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
 # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
@@ -33,28 +34,28 @@ msgstr ""
 # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
 msgctxt "#30000"
 msgid "Loop indefinitely"
-msgstr ""
+msgstr "Neograničeno ponavljanje petlje"
 
 msgctxt "#30001"
 msgid "When enabled, plays either infinite or repeats with the following setting."
-msgstr ""
+msgstr "Kada je omogućeno, reproducira se beskonačno ili se ponavlja sa sljedećim postavkama."
 
 msgctxt "#30002"
 msgid "Loop count"
-msgstr ""
+msgstr "Broj petlji"
 
 msgctxt "#30003"
 msgid "The number of repetitions or as infinite."
-msgstr ""
+msgstr "Broj ponavljanja ili kao beskonačan."
 
 msgctxt "#30004"
 msgid "Infinity"
-msgstr ""
+msgstr "Beskonačnost"
 
 msgctxt "#30005"
 msgid "Fade time (ms)"
-msgstr ""
+msgstr "Vrijeme postepenog smanjivanja (ms)"
 
 msgctxt "#30006"
 msgid "Time at the end to reduce the volume."
-msgstr ""
+msgstr "Vrijeme je na kraju za smanjenje jačine zvuka."
