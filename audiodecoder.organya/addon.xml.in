@@ -27,6 +27,7 @@
     <summary lang="ar_SA">مفكك شفرة الصوت لأورغانيا</summary>
     <summary lang="bs_BA">Organya audio dekoder</summary>
     <summary lang="ca_ES">Descodificador d&apos;àudio Organya</summary>
+    <summary lang="cs_CZ">Dekodér zvuku Organya</summary>
     <summary lang="da_DK">Organya lydafkoder</summary>
     <summary lang="de_DE">Organya Audio Decoder</summary>
     <summary lang="en_GB">Organya Audio Decoder</summary>
@@ -44,6 +45,7 @@
     <summary lang="sv_SE">Organya-ljudavkodare</summary>
     <summary lang="zh_CN">Organya 音频解码器</summary>
     <description lang="bs_BA">Organya je muzički format koji se koristi u igri &quot;Cave Story&quot;, koju je kreirao japanski programer &quot;Pixel&quot;. Osim što se koristi u originalnoj igri, postoji velika i aktivna zajednica obožavatelja Cave Storyja koja kreira muziku u ovom formatu, kako za samostalno reproduciranje, tako i za upotrebu u modovima za igru.[CR][CR]Ovaj dodatak omogućava reprodukciju .ORG datoteka za ovaj format.</description>
+    <description lang="cs_CZ">Organya je hudební formát používaný ve hře „Cave Story“, vytvořený japonským programátorem „Pixel“. Kromě použití v původní hře existuje velká a aktivní fanouškovská komunita Cave Story, která v tomto formátu vytváří hudbu, jak pro samostatné přehrávání, tak pro použití v modech hry.[CR][CR]Tento doplněk umožňuje přehrávání souborů .ORG tohoto formátu.</description>
     <description lang="da_DK">Organya er et musikformat, der bruges i &quot;Cave Story&quot;, skabt af den japanske programmør &quot;Pixel&quot;. Udover at blive brugt i det originale spil, er der et stort og aktivt Cave Story-fanfællesskab, der skaber musik i dette format, både til selvstændig afspilning og til brug i mods til spillet.[CR][CR]Dette add-on tillader afspilning af .ORG-filer til dette format.</description>
     <description lang="de_DE">Organya ist ein Musikformat, das in &quot;Cave Story&quot; verwendet wird und vom japanischen Programmierer &quot;Pixel&quot; erstellt wurde. Neben der Verwendung im Originalspiel gibt es eine große und aktive Cave Story-Fan-Community, die Musik in diesem Format erstellt, sowohl für das eigenständige Spielen als auch für die Verwendung in Modifikationen für das Spiel.[CR][CR]Dieses Addon ermöglicht das Abspielen von .ORG-Dateien für dieses Format.</description>
     <description lang="en_GB">Organya is a music format used in &quot;Cave Story&quot;, created by the Japanese programmer &quot;Pixel&quot;. As well as being used in the original game, there is a large and active Cave Story fan community which creates music in this format, both for standalone to play and for use in mods for the game.[CR][CR]This addon allows playing of .ORG files for this format.</description>
